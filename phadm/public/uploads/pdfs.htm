@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+		<head>
+        <script type="text/javascript" src="../../../scripts/jquery.js"></script>
+<script type="text/javascript" src="../../../scripts/jqueryui.js"></script>
+<script type="text/javascript" src="../../../scripts/xbootstrap.min.js"></script>
+<script type="text/javascript" src="../../../scripts/xjquery.dataTables.js"></script>
+<script type="text/javascript" src="../../../scripts/xvalidator.js"></script>
+<script type="text/javascript" src="../../../scripts/zfooterscript.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../css/font-awesome.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../css/fonts" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../css/fonts.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../css/main.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../css/ui.css" media="screen" />
+<link rel="shortcut icon" href="../../../assets/icons/favicon.ico" type="image/x-icon" media="screen">
+	</head>
+	<body>
+	<div id="wrapper">
+		<div id="header">
+			<div id="logo">
+				<a href="../"><img src="../assets/logo.png"/></a>			</div>
+            <div class="menu_icon_cont">
+                <i class="fa fa-bars"></i>
+            </div>
+			<div id="rlink">
+			</div>
+			<div class="clr"></div>
+		</div>
+		<div class="clr"></div>
+<script type="text/javascript">
+			<!--
+			$(document).ready(function(){
+				 var options = {
+                    chart: {
+                        renderTo: "chtReport",
+                        type: "pie",
+                        options3d: {
+                            enabled: true,
+                            alpha: 0,
+                            beta: 20
+                        }
+
+                    },
+                    title: {
+                        text: "User evenet wise testing report"
+                    },
+                    tooltip: {
+                        pointFormat: "Result: <b>{point.y}</b> ({point.percentage:.1f}%)"
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: "pointer",
+                            depth: 35,
+                            dataLabels: {
+                                enabled: true,
+                                format: "{point.name}"
+                            }
+                        }
+                    },
+                    series: []
+                };
+                //{"type":"pie","name":"Pelawat","data":[["Tahun 2011",1518],["Tahun 2012",2092],["Tahun 2013",1345]]}
+                $.getJSON("../../../admin/getdata?tp=USER_EVENT_TEST_ANALYSIS&vl=&dt=", function(json) {
+                    options.series = json;ChtchtReport = new Highcharts.Chart(options);canvg(document.getElementById("canvas"), ChtchtReport.getSVG())
+    					var canvas = document.getElementById("canvas");
+						var img = canvas.toDataURL("image/png");
+               			img = img.replace("data:image/png;base64,", "");
+               			var data = "bin_data=" + img; 
+               			$.ajax({
+               					type: "POST", 
+               					url: "../../../admin/getimg", 
+               					data: data,
+               					success: function(data){ 
+               						var dta=split(":");
+               						if(dta.length>1){
+               							jAlert(dta[1],"TruPhish");
+               						}
+               					} 
+               			});if(!ChtchtReport.hasData()) { $("#btnchtReport").remove(); }
+                });
+			});
+			//-->
+		</script><script type="text/javascript" src="../../../includes/chart/ahighcharts.js"></script>
+<script type="text/javascript" src="../../../includes/chart/bhighcharts-3d.js"></script>
+<script type="text/javascript" src="../../../includes/chart/exporting.js"></script>
+<script type="text/javascript" src="../../../includes/chart/theme-gray.js"></script>
+<script type="text/javascript" src="../../../includes/chart/xno-data.js"></script>
+<script type="text/javascript" src="../../../includes/chart/yargbcolor.js"></script>
+<script type="text/javascript" src="../../../includes/chart/ycanvg.js"></script>
+<script type="text/javascript" src="../../../includes/chart/yhchart-export-client.js"></script>
+<div id="container">
+	<div class="contents main_dashboard" style="min-height:400px;">
+		<div class="frmhead">
+			<div class="frmname"><h2><i class="fa fa-file-text fa-fw"></i>&nbsp; Event wise Test report</h2></div>
+			<div class="clr"></div>
+		</div>
+		<div class="contents">
+			<div class="frm" id="msg"></div>
+			<div class="frm">
+				<canvas id="canvas" style="display: none;"></canvas>
+				<div style="text-align:center;"><img id="chtReport" src="../public/uploads/chart.png" /></div>
+			</div>
+			<div class="frm">
+				<div title="Report Details"">
+					<p><div class="frm"><div class="grid"><table width="100%" id="repTable_USER_EVENT_TEST_ANALYSIS" class="table table-striped" cellpadding="0" cellspacing="0"><thead><tr><th class="no-sort" width="2%">#</th><th width="19%">Full Name</th><th width="19%">Email Address</th><th width="15%">Run Date</th><th width="10%">Event</th><th width="10%">IP Address</th><th width="10%">Result</th><th width="15%">Result Date</th></tr></thead><tbody><tr><td>1</td><td>Anchit Ji</td><td>amalhotra@trushieldinc.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>2</td><td>Anchit Ji</td><td>amalhotra@trushieldinc.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>3</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>4</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>5</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>6</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>7</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>8</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>9</td><td>Ankur Mathur</td><td>ankyrockstar26@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>10</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>11</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>12</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>Link Clicked</td><td>10.3.3.224</td><td>FAILED</td><td>March 17 2016</td></tr><tr><td>13</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>14</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>15</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>16</td><td>Manoj Kumar Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>Link Clicked</td><td>10.3.3.224</td><td>FAILED</td><td>March 17 2016</td></tr><tr><td>17</td><td>Manoj Sharma</td><td>msharma@trushieldinc.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>18</td><td>Manoj Sharma</td><td>manojsharma20@gmail.com</td><td>March 16 2016</td><td>Link Clicked</td><td>10.3.3.224</td><td>FAILED</td><td>March 16 2016</td></tr><tr><td>19</td><td>Manoj Sharma</td><td>manojsharma20@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>20</td><td>Manoj Sharma</td><td>manojsharma20@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>21</td><td>Manoj Sharma</td><td>manojsharma20@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>22</td><td>Manoj Sharma</td><td>manojsharma20@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 18 2016</td></tr><tr><td>23</td><td>Manoj Sharma</td><td>msharma@trushieldinc.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 18 2016</td></tr><tr><td>24</td><td>Manoj Sharma</td><td>manojsharma20@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>25</td><td>Manoj Sharma</td><td>msharma@trushieldinc.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>26</td><td>Manoj Sharma</td><td>msharma@trushieldinc.com</td><td>March 08 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 11 2016</td></tr><tr><td>27</td><td>Manoj Sharma</td><td>msharma@trushieldinc.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>28</td><td>Mohit Swaami</td><td>mswami@trushieldinc.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>29</td><td>Mohit Swaami</td><td>mswami@trushieldinc.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>30</td><td>Phishing Product</td><td>support@TruShieldinc.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 14 2016</td></tr><tr><td>31</td><td>S K Mishra</td><td>skmishra119@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>32</td><td>S K Mishra</td><td>skmishra119@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>33</td><td>S K Mishra</td><td>skmishra119@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 18 2016</td></tr><tr><td>34</td><td>S K Mishra</td><td>smishra@trushieldinc.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>35</td><td>S K Mishra</td><td>skmishra119@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>36</td><td>S K Mishra</td><td>smishra@trushieldinc.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>37</td><td>S K Mishra</td><td>skmishra119@gmail.com</td><td>March 16 2016</td><td>Link Clicked</td><td>10.3.3.224</td><td>FAILED</td><td>March 16 2016</td></tr><tr><td>38</td><td>S K Mishra</td><td>smishra@trushieldinc.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>39</td><td>S K Mishra</td><td>smishra@trushieldinc.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 14 2016</td></tr><tr><td>40</td><td>S K Mishra</td><td>skmishra119@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>41</td><td>Shashi Kant Mishra</td><td>skmishra119@gmail.com</td><td>March 18 2016</td><td>NOTHING</td><td></td><td></td><td></td></tr><tr><td>42</td><td>Shashi Kant Mishra</td><td>skmishra119@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 18 2016</td></tr><tr><td>43</td><td>Shashi Kant Mishra</td><td>skmishra119@gmail.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 15 2016</td></tr><tr><td>44</td><td>Shashi Kant Mishra</td><td>skmishra119@gmail.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 14 2016</td></tr><tr><td>45</td><td>Shashi Kant Mishra</td><td>skmishra119@gmail.com</td><td>March 08 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 11 2016</td></tr><tr><td>46</td><td>Shashi Kant Mishra</td><td>skmishra119@gmail.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>47</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>48</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>49</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>50</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>51</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>52</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>53</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>54</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 16 2016</td><td>Link Clicked</td><td>10.3.3.224</td><td>FAILED</td><td>March 16 2016</td></tr><tr><td>55</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>56</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>57</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>58</td><td>Shelesh Kumar</td><td>coffeewithshail007@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>59</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>60</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>61</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>62</td><td>Vineeet Mishra</td><td>vmishra@trushieldinc.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 14 2016</td></tr><tr><td>63</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>64</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>65</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>66</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>67</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>68</td><td>Vineeet Mishra</td><td>vmishra@trushieldinc.com</td><td>March 15 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>69</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>70</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>71</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 16 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 16 2016</td></tr><tr><td>72</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>73</td><td>Vineeet Mishra</td><td>vineetm616@gmail.com</td><td>March 17 2016</td><td>NOTHING</td><td></td><td>PASSED</td><td>March 17 2016</td></tr><tr><td>74</td><td>Vineet Mishra ji</td><td>vineetm@gmail.com</td><td>March 14 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 14 2016</td></tr><tr><td>75</td><td>Vineet Mishra ji</td><td>vineetm@gmail.com</td><td>March 08 2016</td><td>NOTHING</td><td></td><td>FAILED</td><td>March 11 2016</td></tr></tbody></table></div></div></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<div id="footer">
+			<div align="center">Copyright &copy; <a href="http://www.trushieldinc.com" target="_blank">trushield inc.</a> , All rights reserved.</div>
+		</div>
+		</div>
+        
+     <script>
+     $(document).ready(function(){
+    	var table = $('.table-striped').DataTable({"columnDefs":[{'targets': 0, 'searchable': false, 'orderable': false }], 'order': [1, 'asc']});
+
+		$('.check_design #chkHDR').on('click', function(){
+			var hProp=$(this).closest('th,td').find('input[type="checkbox"]').prop('checked');
+			var rows = table.rows({'search':'applied'}).nodes();
+			if(hProp==true){
+		    	$('.check_design .square', rows).removeClass('active');
+			}else{
+				$('.check_design .square', rows).addClass('active');
+			}
+			$('input[type="checkbox"]', rows).prop('checked',!hProp);
+		});
+		
+		$('.check_design').each(function(){
+			var checkbox = $(this).closest('th,td').find('input[type="checkbox"]');
+			if(checkbox.prop('checked')==true){
+				$(this).find('.square').addClass('active');
+			}
+		});				   
+							
+	    $(document).on('click', '.check_design .square', function(){ 
+	    	$(this).toggleClass('active');												  
+	    	$(this).closest('th,td').find('input[type="checkbox"]').click();   	
+		});
+
+	    $('#repTable tbody').on('change', 'input[type="checkbox"]', function(){
+	        if(!this.checked){
+	        	$('.check_design #chkHDR').removeClass('active');												  
+		    	$('.check_design #chkHDR').closest('th').find('input[type="checkbox"]').prop('checked',false);
+	        }
+	     });
+	});			   
+     
+     </script>   
+	</body>
+</html>
